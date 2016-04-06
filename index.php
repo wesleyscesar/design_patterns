@@ -1,42 +1,13 @@
 <?php
 
-interface Forms
-{
-    function addElement($input);
-    function render();
-}
+define('CLASS_DIR', 'src/');
+set_include_path(get_include_path().PATH_SEPARATOR.CLASS_DIR);
+spl_autoload_register(function ($class){
+    require_once(str_replace('\\','/',$class . '.php'));
+});
 
-class Form implements Forms
-{
-    private $element;
-
-    function addElement($input)
-    {
-        $this->element = $input;
-    }
-
-    function render()
-    {
-        echo $this->element;
-    }
-}
-
-interface Inputs
-{
-    function newInput($type);
-}
-
-class Input implements Inputs
-{
-    function newInput($type)
-    {
-        return "<input type='{$type}' />";
-    }
-}
-
-
-$form = new Form();
-$input = new Input();
+$form = new Wesley\Forms\Form();
+$input = new Wesley\Input\Input();
 
 $form->addElement($input->newInput('text'));
 $form->render();
