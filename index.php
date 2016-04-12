@@ -7,11 +7,15 @@ spl_autoload_register(function ($class){
 });
 
 $form = new Wesley\Forms\Form();
-$input = new Wesley\Input\Input();
+$validator = new \Wesley\Validador\Validator();
+$input = new Wesley\Campos\Input($validator);
+
+$form->createField($input->newLabel('Nome'));
+$form->createField($input->newInput('text'));
+
+$form->createField($input->newLabel('Endereco'));
 
 $form->addElement($input->newInput('text'));
-$form->render();
-
 $form->addElement($input->newInput('submit'));
-$form->render();
 
+$form->render();
