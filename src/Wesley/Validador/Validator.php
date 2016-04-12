@@ -2,7 +2,7 @@
 
 namespace Wesley\Validador;
 
-class Validator implements ValidatorInterface
+class Validator extends Request implements ValidatorInterface
 {
     function validar($campo)
     {
