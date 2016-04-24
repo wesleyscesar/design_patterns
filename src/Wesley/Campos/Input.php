@@ -23,4 +23,9 @@ class Input implements InterfaceInputs
     {
         return "<label for='{$name}'>{$name}:</label>";
     }
+
+    function newFieldSet()
+    {
+        return "<fieldset>";
+    }
 }

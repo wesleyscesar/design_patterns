@@ -10,6 +10,9 @@ $form = new Wesley\Forms\Form();
 $validator = new \Wesley\Validador\Validator();
 $input = new Wesley\Campos\Input($validator);
 
+
+$form->createField($input->newFieldSet());
+
 $form->createField($input->newLabel('Nome'));
 $form->createField($input->newInput('text'));
 
